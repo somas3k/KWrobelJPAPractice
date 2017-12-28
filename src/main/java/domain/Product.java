@@ -19,7 +19,7 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="SUPPLIER_ID")
-    private Company supplier;
+    private Supplier supplier;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="categoryId")

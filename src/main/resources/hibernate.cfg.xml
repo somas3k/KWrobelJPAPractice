@@ -12,6 +12,8 @@
         <mapping class="domain.Product"/>
         <mapping class="domain.Company"/>
         <mapping class="domain.Category"/>
+        <mapping class="domain.Supplier"/>
+        <mapping class="domain.Customer"/>
 
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
