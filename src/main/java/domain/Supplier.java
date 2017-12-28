@@ -8,10 +8,6 @@ import java.util.Set;
 @Table(name = "SUPPLIERS")
 public class Supplier extends Company {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int supplierId;
-
     private String bankAccountNumber;
 
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.PERSIST)

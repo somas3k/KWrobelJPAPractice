@@ -32,7 +32,6 @@ public class Main {
         Product p2 = new Product("Ogórek", 30,c1);
         Product p3 = new Product("Buraki", 25,c1);
         Product p4 = new Product("Ziemniaki", 42,c1);
-        //em.persist(p1); em.persist(p2); em.persist(p3); em.persist(p4);
         Supplier s2 = new Supplier("Warzywniak", "Łomżyńska 4", "Sosnowiec", "41-219", "1111-1111-2222-2222-3333-4444");
         em.persist(s2);
         s2.addProduct(p1); s2.addProduct(p2); s2.addProduct(p3); s2.addProduct(p4);
@@ -41,7 +40,6 @@ public class Main {
         Product p6 = new Product("Lodówka", 10, c2);
         Product p7 = new Product("Mikser", 50, c2);
 
-//        //em.persist(p5); em.persist(p6); em.persist(p7);
 
         Supplier s3 = new Supplier("LG", "1 Maja 3", "Warszawa", "00-012");
         Customer cu1 = new Customer("Auchan", "Zuzanny 20", "Sosnowiec", "41-200", 0.12);
@@ -52,7 +50,6 @@ public class Main {
         s3.addProduct(p5);
         s3.addProduct(p6);
         s3.addProduct(p7);
-//
         Transaction o1 = new Transaction(cu1);
         Transaction o2 = new Transaction(cu2);
         Transaction o3 = new Transaction(cu1);
@@ -76,31 +73,6 @@ public class Main {
             e.printStackTrace();
         }
         etx.commit();
-//        System.out.println();
-//        String suppName = "Warzywniak";
-//        Supplier s = em.createQuery("from Supplier as s where s.companyName=:name", Supplier.class).setParameter("name", suppName).getSingleResult();
-//        System.out.println();
-//        System.out.println(s);
-//        System.out.println();
-//        String custName = "Auchan";
-//        Customer c = em.createQuery("from Customer as c where c.companyName=:name", Customer.class).setParameter("name", custName).getSingleResult();
-//        System.out.println();
-//        System.out.println(c);
-//        int transId = 7;
-//        //Company s = em.createQuery("from Company as s where s.companyName=:name", Company.class).setParameter("name", suppName).getSingleResult();
-//        Transaction t = em.createQuery("from Transaction as t where t.id=:id", Transaction.class).setParameter("id", transId).getSingleResult();
-//        System.out.println();
-//        for(Product p : t.getProducts()){
-//            System.out.println(p);
-//        }
-//        System.out.println();
-//        String productName = "Pomidor";
-//        Product p = em.createQuery("from Product as product where product.productName=:name", Product.class).setParameter("name", productName).getSingleResult();
-//
-//        System.out.println();
-//        for(Transaction tt : p.getTransactions()){
-//            System.out.println(tt);
-//        }
         em.close();
     }
 

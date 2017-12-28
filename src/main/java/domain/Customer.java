@@ -9,10 +9,6 @@ import java.util.Set;
 @Table(name = "CUSTOMERS")
 public class Customer extends Company {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int customerId;
-
     private Double discount;
 
     @OneToMany(mappedBy = "customer")

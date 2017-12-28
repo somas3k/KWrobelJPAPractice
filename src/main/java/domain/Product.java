@@ -28,8 +28,6 @@ public class Product {
     @ManyToMany(mappedBy = "products", cascade = CascadeType.PERSIST)
     private Set<Transaction> transactions;
 
-    //private int categoryId;
-
     public Product() {
     }
 
@@ -46,7 +44,6 @@ public class Product {
     }
 
     public void setSupplier(Supplier supplier) {
-        //company.addProduct(this);
         this.supplier = supplier;
     }
 
