@@ -19,7 +19,7 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="SUPPLIER_ID")
-    private Supplier supplier;
+    private Company supplier;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="categoryId")
@@ -46,11 +46,11 @@ public class Product {
     }
 
     public void setSupplier(Supplier supplier) {
-        //supplier.addProduct(this);
+        //company.addProduct(this);
         this.supplier = supplier;
     }
 
-    public Supplier getSupplier() {
+    public Company getSupplier() {
         return supplier;
     }
 

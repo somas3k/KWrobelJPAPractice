@@ -2,7 +2,7 @@ package domain;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
+//@Embeddable
 public class Address {
 
     private String street;

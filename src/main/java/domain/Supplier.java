@@ -5,19 +5,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "SUPPLIERS")
-public class Supplier {
+//@Table(name = "SUPPLIERS")
+public class Supplier extends Company {
 
-    @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private int supplierId;
 
-    @Embedded
-    private Address address;
-
-    private String companyName;
-//    private String street;
-//    private String city;
+    private String bankAccountNumber;
 
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.PERSIST)
     private Set<Product> productSet;
@@ -25,25 +20,14 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(String companyName, String street, String city) {
-        this.companyName = companyName;
-        address = new Address(street, city);
-//        this.street = street;
-//        this.city = city;
+    public Supplier(String companyName, String street, String city, String zipCode, String bankAccountNumber){
+        super(companyName, street, city, zipCode);
+        this.bankAccountNumber = bankAccountNumber;
     }
 
-    public Supplier(String companyName, Address address){
-        this.companyName = companyName;
-        this.address = address;
+    public Supplier(String companyName, String street, String city, String zipCode) {
+        super(companyName, street, city, zipCode);
     }
-
-//    public void setStreet(String street) {
-//        this.street = street;
-//    }
-//
-//    public void setCity(String city) {
-//        this.city = city;
-//    }
 
     public void addProduct(Product product){
         product.setSupplier(this);
@@ -55,17 +39,4 @@ public class Supplier {
         return productSet;
     }
 
-//    @Override
-//    public String toString(){
-//        return "Supplier{categoryName=\"" + companyName + "\"; street=\"" + street + "\" city=\"" + city + "\"}";
-//    }
-
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                "id=" + id +
-                ", address=" + address +
-                ", companyName='" + companyName + '\'' +
-                '}';
-    }
 }

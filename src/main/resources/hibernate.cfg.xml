@@ -10,7 +10,7 @@
         <property name="hbm2ddl.auto">create</property>
         <mapping class="domain.Transaction"/>
         <mapping class="domain.Product"/>
-        <mapping class="domain.Supplier"/>
+        <mapping class="domain.Company"/>
         <mapping class="domain.Category"/>
 
         <!-- <property name="connection.username"/> -->
