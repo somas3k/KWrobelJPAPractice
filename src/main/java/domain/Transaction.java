@@ -20,11 +20,16 @@ public class Transaction {
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Product> products;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Customer customer;
+
     public Transaction() {
     }
 
-    public Transaction(int quantity){
-        this.quantity = quantity;
+    public Transaction(Customer c){
+        this.customer = c;
+        c.connectWithTransaction(this);
+        this.quantity = 0;
     }
 
     private void addToOrder(int productQuantity){
@@ -60,5 +65,11 @@ public class Transaction {
                 '}';
     }
 
+    public int getTransactionNumber() {
+        return transactionNumber;
+    }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 }

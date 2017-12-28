@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Table(name = "SUPPLIERS")
+@Table(name = "SUPPLIERS")
 public class Supplier extends Company {
 
 //    @Id
@@ -39,4 +39,14 @@ public class Supplier extends Company {
         return productSet;
     }
 
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "bankAccountNumber='" + bankAccountNumber + '\'' +
+                "} " + super.toString();
+    }
+
+    public String getBankAccountNumber() {
+        return bankAccountNumber;
+    }
 }

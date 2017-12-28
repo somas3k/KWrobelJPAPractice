@@ -78,4 +78,20 @@ public class Product {
     public Set<Transaction> getTransactions() {
         return transactions;
     }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public Integer getUnitsInStock() {
+        return unitsInStock;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 }

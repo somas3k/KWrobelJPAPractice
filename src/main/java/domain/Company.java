@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "COMPANIES")
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@SecondaryTable(name = "ADDRESSES")
+//@Table(name = "COMPANIES")
+@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+//@SecondaryTable(name = "ADDRESSES")
 public abstract class Company {
 
     @Id
@@ -19,13 +19,13 @@ public abstract class Company {
 
     private String companyName;
 
-    @Column(table = "ADDRESSES")
+    //@Column(table = "ADDRESSES")
     private String street;
 
-    @Column(table = "ADDRESSES")
+    //@Column(table = "ADDRESSES")
     private String city;
 
-    @Column(table = "ADDRESSES")
+    //@Column(table = "ADDRESSES")
     private String zipCode;
 
     public Company() {
@@ -54,11 +54,16 @@ public abstract class Company {
 
 
     @Override
-    public String toString(){
-        return "Company{categoryName=\"" + companyName + "\"; street=\"" + street + "\" city=\"" + city + "\"}";
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
     }
-
-//    @Override
+    //    @Override
 //    public String toString() {
 //        return "Company{" +
 //                "id=" + id +
@@ -66,4 +71,25 @@ public abstract class Company {
 //                ", companyName='" + companyName + '\'' +
 //                '}';
 //    }
+
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
 }

@@ -1,12 +1,12 @@
 package domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "CUSTOMERS")
 public class Customer extends Company {
 
 //    @Id
@@ -15,11 +15,33 @@ public class Customer extends Company {
 
     private Double discount;
 
+    @OneToMany(mappedBy = "customer")
+    private Set<Transaction> transactions;
+
     public Customer() {
     }
 
     public Customer(String companyName, String street, String city, String zipCode, Double discount) {
         super(companyName, street, city, zipCode);
         this.discount = discount;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "discount=" + discount +
+                "} " + super.toString();
+    }
+
+    void connectWithTransaction(Transaction t){
+        if(transactions == null){
+            transactions = new HashSet<>();
+        }
+        transactions.add(t);
+    }
+
+
+    public Double getDiscount() {
+        return discount;
     }
 }

@@ -27,4 +27,8 @@ public class Category {
         if(products == null) products = new HashSet<>();
         products.add(p);
     }
+
+    public int getCategoryID() {
+        return categoryID;
+    }
 }
